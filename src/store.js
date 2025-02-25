@@ -16,6 +16,7 @@ export const initialStore = () => {
       }
     ],
     planets: [],
+    people: [],
   }
 }
 
@@ -36,6 +37,13 @@ export default function storeReducer(store, action = {}) {
           planets: action.payload, // Guardamos los contactos en el estado
         };
       }
+
+      case 'load_characters': {
+        return {
+          ...store,
+          people: action.payload, // Guardamos los contactos en el estado
+        };
+      }
     default:
       throw Error('Unknown action.');
   }
@@ -47,6 +55,17 @@ export const fetchPlanets = async (dispatch) => {
     const data = await response.json()
     console.log(data.results)
     dispatch({ type: 'load_planets', payload: data.results });
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+export const fetchCharacters = async (dispatch) => {
+  try {
+    const response = await fetch("https://swapi.dev/api/people/")
+    const data = await response.json()
+    console.log(data.results)
+    dispatch({ type: 'load_characters', payload: data.results });
   } catch (error) {
     console.log(error)
   }

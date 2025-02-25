@@ -1,0 +1,54 @@
+{
+    "people": [
+        {
+            "id": 0,
+            "name": "Luke",
+            "image": "https://static.wikia.nocookie.net/esstarwars/images/d/d9/Luke-rotjpromo.jpg/revision/latest?cb=20071214134433"
+        },
+        {
+            "id": 1,
+            "name": "C-3PO",
+            "image": "https://static.wikia.nocookie.net/esstarwars/images/5/51/C-3PO_EP3.png/revision/latest?cb=20161101011052"
+        },
+        {
+            "id": 2,
+            "name": "R2-D2",
+            "image": "https://static.wikia.nocookie.net/esstarwars/images/e/eb/ArtooTFA2-Fathead.png/revision/latest?cb=20150926172435"
+        },
+        {
+            "id": 3,
+            "name": "Darth Vader",
+            "image": "https://i.pinimg.com/originals/51/e3/7c/51e37c2b688170cdc07888eba287bfd1.jpg"
+        },
+        {
+            "id": 4,
+            "name": "Leia",
+            "image": "https://upload.wikimedia.org/wikipedia/en/1/1b/Princess_Leia%27s_characteristic_hairstyle.jpg"
+        },
+        {
+            "id": 5,
+            "name": "Owen Lars",
+            "image": "https://static.wikia.nocookie.net/esstarwars/images/e/eb/OwenCardTrader.png/revision/latest?cb=20180105223041"
+        },
+        {
+            "id": 6,
+            "name": "Beru Whitesun lars",
+            "image": "https://static.wikia.nocookie.net/esstarwars/images/7/76/Beru_headshot2.jpg/revision/latest?cb=20110903174509"
+        },
+        {
+            "id": 7,
+            "name": "R5-D4",
+            "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtNwrATTEATjW8PYHZhVJFXC_uUa0zJHo62g&s"
+        },
+        {
+            "id": 8,
+            "name": "Biggs Darklighter",
+            "image": "https://static.wikia.nocookie.net/starwars/images/0/00/BiggsHS-ANH.png/revision/latest?cb=20130305010406"
+        },
+        {
+            "id": 9,
+            "name": "Obi-Wan Kenobi",
+            "image": "https://static.wikia.nocookie.net/esstarwars/images/4/4e/ObiWanHS-SWE.jpg/revision/latest?cb=20120125222904"
+        }
+    ]
+}
