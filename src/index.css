@@ -6,7 +6,7 @@ h1 {
     font-size: 4rem;
     text-transform: uppercase;
     color: white;
-    text-shadow: 3px 3px 10px black;
+    text-shadow: 3px 3px 10px rgb(221, 17, 17);
     letter-spacing: 3px;
     text-align: center;
 }
@@ -17,7 +17,11 @@ h2 {
     font-size: 3rem;
     text-transform: uppercase;
     color: white;
-    text-shadow: 3px 3px 10px black;
+    text-shadow: 3px 3px 10px  rgb(221, 17, 17);
     letter-spacing: 3px;
     text-align: center;
+}
+
+body{
+    background-color: rgb(0, 0, 0);
 }

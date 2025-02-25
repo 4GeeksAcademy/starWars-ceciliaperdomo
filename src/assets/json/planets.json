@@ -1,0 +1,55 @@
+{
+    "planets": [
+      {
+        "id": 0,
+        "name": "Tatooine",
+        "image": "https://static.wikia.nocookie.net/esstarwars/images/b/b0/Tatooine_TPM.png/revision/latest?cb=20131214162357"
+      },
+      {
+        "id": 1,
+        "name": "Alderaan",
+        "image": "https://static.wikia.nocookie.net/esstarwars/images/4/4a/Alderaan.jpg/revision/latest?cb=20100723184830"
+      },
+      {
+        "id": 2,
+        "name": "Yavin IV",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSC-0W09IkLmeYQDl_vaYC82XYw6J1MMIDgcQ&s"
+      },
+      {
+        "id": 3,
+        "name": "Hoth",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQPOqzos5k0MD46T9xVMclxBhWN05n-xGufZQ&s"
+      },
+      {
+        "id": 4,
+        "name": "Dagobah",
+        "image": "https://static.wikia.nocookie.net/esstarwars/images/1/1c/Dagobah.jpg/revision/latest?cb=20061117132132"
+      },
+      {
+        "id": 5,
+        "name": "Bespin",
+        "image": "https://static.wikia.nocookie.net/esstarwars/images/1/11/Bespin-SWCT.png/revision/latest?cb=20170924173926"
+      },
+      {
+        "id": 6,
+        "name": "Endor",
+        "image": "https://static.wikia.nocookie.net/esstarwars/images/5/50/Endor_FFGRebellion.png/revision/latest?cb=20170629163352"
+      },
+      {
+        "id": 7,
+        "name": "Naboo",
+        "image": "https://static.wikia.nocookie.net/esstarwars/images/f/f0/Naboo_planet.png/revision/latest?cb=20190928214307"
+      },
+      {
+        "id": 8,
+        "name": "Coruscant",
+        "image": "https://static.wikia.nocookie.net/esstarwars/images/1/16/Coruscant-EotE.jpg/revision/latest?cb=20221030195452"
+      },
+      {
+        "id": 9,
+        "name": "Kamino",
+        "image": "https://static.wikia.nocookie.net/esstarwars/images/a/a9/Eaw_Kamino.jpg/revision/latest?cb=20210616005549"
+      }
+    ]
+  }
+  
