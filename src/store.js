@@ -17,6 +17,8 @@ export const initialStore = () => {
     ],
     planets: [],
     people: [],
+    character: {},
+    planet: {},
   }
 }
 
@@ -31,41 +33,77 @@ export default function storeReducer(store, action = {}) {
         todos: store.todos.map((todo) => (todo.id === id ? { ...todo, background: color } : todo))
       };
 
-      case 'load_planets': {
-        return {
-          ...store,
-          planets: action.payload, // Guardamos los contactos en el estado
-        };
-      }
+    case 'load_planets': {
+      return {
+        ...store,
+        planets: action.payload, // Guardamos los contactos en el estado
+      };
+    }
 
-      case 'load_characters': {
-        return {
-          ...store,
-          people: action.payload, // Guardamos los contactos en el estado
-        };
-      }
+    case 'load_characters': {
+      return {
+        ...store,
+        people: action.payload, // Guardamos los contactos en el estado
+      };
+    }
+    case 'load_character': {
+      return {
+        ...store,
+        character: action.payload, // Guardamos los contactos en el estado
+      };
+    }
+    case 'load_planet': {
+      return {
+        ...store,
+        planet: action.payload, // Guardamos los contactos en el estado
+      };
+    }
     default:
       throw Error('Unknown action.');
   }
 }
 
+// Fetch de planetas  
 export const fetchPlanets = async (dispatch) => {
   try {
     const response = await fetch("https://swapi.dev/api/planets/")
     const data = await response.json()
-    console.log(data.results)
     dispatch({ type: 'load_planets', payload: data.results });
   } catch (error) {
     console.log(error)
   }
 }
 
+// Fetch de planetas individual
+export const fetchInfoPlanet = async (dispatch, id) => {
+  try {
+    const response = await fetch(`https://swapi.dev/api/planets/${id}/`)
+    const data = await response.json()
+    console.log(data)
+    dispatch({ type: 'load_planet', payload: data });
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+// Fetch de personajes
 export const fetchCharacters = async (dispatch) => {
   try {
     const response = await fetch("https://swapi.dev/api/people/")
     const data = await response.json()
-    console.log(data.results)
     dispatch({ type: 'load_characters', payload: data.results });
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+// Fetch de personajes individual
+export const fetchInfoCharacter = async (dispatch, id) => {
+  try {
+    const response = await fetch(`https://swapi.dev/api/people/${id}/`)
+    const data = await response.json()
+    console.log(data)
+    dispatch({ type: 'load_character', payload: data });
   } catch (error) {
     console.log(error)
   }

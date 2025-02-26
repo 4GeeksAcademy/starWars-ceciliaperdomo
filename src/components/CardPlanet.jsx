@@ -23,7 +23,7 @@ export const CardPlanet = ({ id, planet }) => {
                     <p className="card-text">Terrain: <strong>{planet.terrain}</strong></p>
                 </div>
                 <div className="d-flex justify-content-between">
-                    <Link to="#" className="btn btn-outline-primary">
+                    <Link to={`/planet/${id+1}`} className="btn btn-outline-primary">
                         Más info
                     </Link>
                     <button className="btn btn-outline-warning">
