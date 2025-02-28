@@ -1,11 +1,17 @@
 import { Link } from "react-router-dom"
+import useGlobalReducer from "../hooks/useGlobalReducer.jsx";
 
 // Imagenes de planetas
 import peopleData from "../assets/json/people.json";
 
-export const CardPeople = ({ id, people }) => {
+// Agrega a favoritos
+import { favorites } from "../store.js";
 
+export const CardPeople = ({ id, people }) => {
+    const { store, dispatch } = useGlobalReducer()
     const peopleImage = peopleData.people.find(p => p.id === id)?.image || "https://via.placeholder.com/300";
+
+    const isFavorite = store.favoritos?.includes(people.name) || false;     //para poner el corazon de color
 
     return (
         <div
@@ -28,7 +34,10 @@ export const CardPeople = ({ id, people }) => {
                     <Link to="#" className="btn btn-outline-primary">
                         Más info
                     </Link>
-                    <button className="btn btn-outline-warning">
+                    <button
+                        className={isFavorite ? "btn btn-danger" :"btn btn-outline-warning"}
+                        onClick={() => favorites(dispatch, people.name, store)}
+                    >
                         <i className="fa fa-heart"></i>
                     </button>
                 </div>

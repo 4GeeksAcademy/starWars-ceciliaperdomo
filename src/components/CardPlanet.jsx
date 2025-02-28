@@ -11,7 +11,7 @@ export const CardPlanet = ({ id, planet }) => {
     const { store, dispatch } = useGlobalReducer()
     const planetImage = planetsData.planets.find(p => p.id === id)?.image || "https://via.placeholder.com/300";
 
-    const isFavorite = store.favorites?.includes(planet.name) || false;
+    const isFavorite = store.favoritos?.includes(planet.name) || false; 
 
     return (
         <div
@@ -33,10 +33,10 @@ export const CardPlanet = ({ id, planet }) => {
                         Más info
                     </Link>
                     <button
-                        className="btn btn-outline-warning"
+                        className={isFavorite ? "btn btn-danger" :"btn btn-outline-warning"}
                         onClick={() => favorites(dispatch, planet.name, store)}
                     >
-                        <i className="fa fa-heart" style={{ color: isFavorite ? 'red' : 'black' }}></i>
+                        <i className="fa fa-heart"></i>
                     </button>
                 </div>
             </div>
