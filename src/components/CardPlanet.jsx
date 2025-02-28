@@ -1,11 +1,17 @@
 import { Link } from "react-router-dom"
+import useGlobalReducer from "../hooks/useGlobalReducer.jsx";
 
 // Imagenes de planetas
 import planetsData from "../assets/json/planets.json";
 
-export const CardPlanet = ({ id, planet }) => {
+// Agrega a favoritos
+import { favorites } from "../store.js";
 
+export const CardPlanet = ({ id, planet }) => {
+    const { store, dispatch } = useGlobalReducer()
     const planetImage = planetsData.planets.find(p => p.id === id)?.image || "https://via.placeholder.com/300";
+
+    const isFavorite = store.favorites?.includes(planet.name) || false;
 
     return (
         <div
@@ -23,11 +29,14 @@ export const CardPlanet = ({ id, planet }) => {
                     <p className="card-text">Terrain: <strong>{planet.terrain}</strong></p>
                 </div>
                 <div className="d-flex justify-content-between">
-                    <Link to={`/planet/${id+1}`} className="btn btn-outline-primary">
+                    <Link to={`/planet/${id + 1}`} className="btn btn-outline-primary">
                         Más info
                     </Link>
-                    <button className="btn btn-outline-warning">
-                        Like
+                    <button
+                        className="btn btn-outline-warning"
+                        onClick={() => favorites(dispatch, planet.name, store)}
+                    >
+                        <i className="fa fa-heart" style={{ color: isFavorite ? 'red' : 'black' }}></i>
                     </button>
                 </div>
             </div>

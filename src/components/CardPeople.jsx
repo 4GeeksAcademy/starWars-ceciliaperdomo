@@ -29,7 +29,7 @@ export const CardPeople = ({ id, people }) => {
                         Más info
                     </Link>
                     <button className="btn btn-outline-warning">
-                        Like
+                        <i className="fa fa-heart"></i>
                     </button>
                 </div>
             </div>

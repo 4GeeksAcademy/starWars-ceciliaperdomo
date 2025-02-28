@@ -27,7 +27,7 @@ export const Home = () => {
 			<br />
 
 			<h2>Characters</h2>
-			<div className="d-flex flex-row overflow-scroll">
+			<div className="d-flex flex-row overflow-scroll" style={{ overflowX: 'scroll', scrollbarWidth: 'none' }}>
 				{store.people.map((people, id) => (
 					<CardPeople
 						key={id}

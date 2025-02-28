@@ -19,6 +19,7 @@ export const initialStore = () => {
     people: [],
     character: {},
     planet: {},
+    favoritos: [],
   }
 }
 
@@ -57,6 +58,20 @@ export default function storeReducer(store, action = {}) {
         ...store,
         planet: action.payload, // Guardamos los contactos en el estado
       };
+    }
+
+    //  Favoritos
+    case 'add_favorito': {
+      return {
+        ...store,
+        favoritos: [...store.favoritos, action.payload]
+      }
+    }
+    case 'remove_favorito': {
+      return {
+        ...store,
+        favoritos: store.favoritos.filter(favorito => favorito !== action.payload)
+      }
     }
     default:
       throw Error('Unknown action.');
@@ -106,5 +121,14 @@ export const fetchInfoCharacter = async (dispatch, id) => {
     dispatch({ type: 'load_character', payload: data });
   } catch (error) {
     console.log(error)
+  }
+}
+
+// Agrega o elimina de favoritos
+export const favorites = (dispatch, item, store) => {
+  if (store.favoritos.includes(item)) {
+    dispatch({ type: 'remove_favorito', payload: item });
+  } else {
+    dispatch({ type: 'add_favorito', payload: item });
   }
 }
