@@ -8,29 +8,22 @@ import peopleData from "../assets/json/people.json"
 export const SingleCharacter = () => {
     const { store, dispatch } = useGlobalReducer()
     const { idCharacter } = useParams()
-    const [planetName, setPlanetName] = useState("")
 
     useEffect(() => {
         fetchInfoCharacter(dispatch, idCharacter)
+        planeta()
     }, [])
 
-    // useEffect(() => {
-    //     planeta()
-    //     console.log(planetName)
-    // }, [store.character.homeworld])
-
-    // const planeta = async () => {
-    //     const homeworldId = store.character.homeworld ? store.character.homeworld.match(/\/(\d+)\/$/)[1] : null;
-    //     if (homeworldId !== null) {
-    //         try {
-    //             console.log("homeworldId", homeworldId)
-    //             const planet = await fetchInfoPlanet(dispatch, homeworldId);
-    //             setPlanetName(planet?.name)
-    //         } catch (error) {
-    //             console.error("Error al obtener el planeta:", error);
-    //         }
-    //     }
-    // }
+    const planeta = async () => {
+        const homeworldId = store?.character?.homeworld ? store?.character?.homeworld.match(/\/(\d+)\/$/)[1] : null;
+        if (homeworldId !== null) {
+            try {
+                await fetchInfoPlanet(dispatch, homeworldId);
+            } catch (error) {
+                console.error("Error al obtener el planeta:", error);
+            }
+        }
+    }
 
     const isFavorite = store.favoritos?.includes(store.character.name) || false
     const peopleImage = peopleData.people.find(p => p.id === Number(idCharacter - 1))?.image
@@ -91,10 +84,10 @@ export const SingleCharacter = () => {
                                         Skin Color
                                         <p><strong>{store.character.skin_color}</strong></p>
                                     </div>
-                                    {/* <div className="col border-end border-info">
+                                    <div className="col border-end border-info">
                                         Homeworld
-                                        <p><strong>{planetName}</strong></p>
-                                    </div> */}
+                                        <p><strong>{store?.planet?.name}</strong></p>
+                                    </div>
                                 </div>
                             </div>
                         </div>

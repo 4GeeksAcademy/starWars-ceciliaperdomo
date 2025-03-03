@@ -94,7 +94,7 @@ export const fetchInfoPlanet = async (dispatch, id) => {
   try {
     const response = await fetch(`https://swapi.dev/api/planets/${id}/`)
     const data = await response.json()
-    console.log(data)
+    // console.log(data)
     dispatch({ type: 'load_planet', payload: data });
   } catch (error) {
     console.log(error)
@@ -117,7 +117,7 @@ export const fetchInfoCharacter = async (dispatch, id) => {
   try {
     const response = await fetch(`https://swapi.dev/api/people/${id}`)
     const data = await response.json()
-    console.log(data)
+    // console.log(data)
     dispatch({ type: 'load_character', payload: data });
   } catch (error) {
     console.log(error)
