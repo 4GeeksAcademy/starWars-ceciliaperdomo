@@ -1,7 +1,7 @@
 import { useEffect } from "react"
 import { useParams } from "react-router-dom"
 import useGlobalReducer from "../hooks/useGlobalReducer"
-import { fetchInfoPlanet } from "../store"
+import { fetchInfoPlanet, favorites } from "../store"
 import planetsData from "../assets/json/planets.json"
 
 export const SinglePlanet = () => {
@@ -12,15 +12,22 @@ export const SinglePlanet = () => {
         fetchInfoPlanet(dispatch, idPlanet)
     }, [])
 
-    console.log(store.planet)
-
-    const planetImage = planetsData.planets.find(p => p.id === Number(idPlanet))?.image
+    const isFavorite = store.favoritos?.includes(store.planet.name) || false
+    const planetImage = planetsData.planets.find(p => p.id === Number(idPlanet - 1))?.image
 
     return (
         <div className="text-center mt-3 container" style={{ background: "black" }}>
             <h1>{store.planet.name}</h1>
 
             <div className="card mb-3 border-info p-2" style={{ background: "black" }}>
+            <div className="d-flex justify-content-end">
+                <button
+                    className={isFavorite ? "btn btn-danger" : "btn btn-outline-warning"}
+                    onClick={() => favorites(dispatch, store.planet.name, store)}
+                >
+                    <i className="fa fa-heart"></i>
+                </button>
+            </div>
                 <div className="row g-0">
                     <div className="col-md-4">
                         <img src={planetImage} className="img-fluid rounded-start" alt={store.planet.name} />
@@ -70,7 +77,6 @@ export const SinglePlanet = () => {
                                 </div>
                             </div>
                         </div>
-                        <button className="btn btn-outline-warning mt-5" style={{ height: "50px" }}>Like</button>
                     </div>
                 </div>
             </div>

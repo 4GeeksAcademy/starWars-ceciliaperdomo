@@ -31,11 +31,11 @@ export const CardPeople = ({ id, people }) => {
                     <p className="card-text">Eye color: <strong>{people.eye_color}</strong></p>
                 </div>
                 <div className="d-flex justify-content-between">
-                    <Link to="#" className="btn btn-outline-primary">
+                    <Link to={`/character/${id + 1}`} className="btn btn-outline-primary">
                         Más info
                     </Link>
                     <button
-                        className={isFavorite ? "btn btn-danger" :"btn btn-outline-warning"}
+                        className={isFavorite ? "btn btn-danger" : "btn btn-outline-warning"}
                         onClick={() => favorites(dispatch, people.name, store)}
                     >
                         <i className="fa fa-heart"></i>

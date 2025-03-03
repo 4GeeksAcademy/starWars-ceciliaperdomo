@@ -115,7 +115,7 @@ export const fetchCharacters = async (dispatch) => {
 // Fetch de personajes individual
 export const fetchInfoCharacter = async (dispatch, id) => {
   try {
-    const response = await fetch(`https://swapi.dev/api/people/${id}/`)
+    const response = await fetch(`https://swapi.dev/api/people/${id}`)
     const data = await response.json()
     console.log(data)
     dispatch({ type: 'load_character', payload: data });
