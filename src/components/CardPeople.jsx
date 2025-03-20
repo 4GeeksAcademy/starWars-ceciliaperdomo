@@ -7,6 +7,9 @@ import peopleData from "../assets/json/people.json";
 // Agrega a favoritos
 import { favorites } from "../store.js";
 
+// importacion del css
+import "./css/cardPeople.css"
+
 export const CardPeople = ({ id, people }) => {
     const { store, dispatch } = useGlobalReducer()
     const peopleImage = peopleData.people.find(p => p.id === id)?.image || "https://via.placeholder.com/300";
@@ -14,22 +17,29 @@ export const CardPeople = ({ id, people }) => {
     const isFavorite = store.favoritos?.includes(people.name) || false;     //para poner el corazon de color
 
     return (
-        <div
-            className="card"
-            style={{ width: "18rem", flex: "none", margin: "10px" }}>
-
-            <img src={peopleImage}
-                className="card-img-top"
-                alt={people.name}
-                style={{ height: "25rem" }}
-            />
-
-            <div className="card-body d-flex flex-column justify-content-center">
-                <div className="align-items-center text-center" style={{ height: "150px" }}>
-                    <h5 className="card-title">{people.name}</h5>
-                    <p className="card-text">Gender: <strong>{people.gender}</strong></p>
-                    <p className="card-text">Eye color: <strong>{people.eye_color}</strong></p>
+        <div className="cardPeople">
+            <div className="bg uwu"></div>
+            <div className="bg"></div>
+            <div className="content">
+                <div className="img">
+                    <img src={peopleImage}
+                        className="card-img-top"
+                        alt={people.name}
+                    />
                 </div>
+                <div className="h1">
+                    <strong>{people.name}</strong>
+                    <br />
+                    Gender: <strong>{people.gender}</strong>
+                </div>
+                <div className="p">
+                    <p>
+                        Eye color: <strong>{people.eye_color}</strong>
+                        <br />
+                        Hair color: <strong>{people.hair_color}</strong>
+                    </p>
+                </div>
+
                 <div className="d-flex justify-content-between">
                     <Link to={`/character/${id + 1}`} className="btn btn-outline-primary">
                         Más info
